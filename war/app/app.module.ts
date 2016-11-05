@@ -11,12 +11,9 @@ import { SignUpComponent } from './pages/signup.component';
 import { SignInComponent } from './pages/signin.component';
 import { OverviewComponent } from './pages/overview.component';
 import { DetailComponent } from './pages/detail.component';
-// import { DetailComponent } from './app.detail.component';
 
-// import { MainPane } from './directive/main-pane';
-// // import { SubPane } from './directive/sub-pane';
-
-// import { QuestionDataService } from './service/questiondata-service';
+//Directive
+import { HeaderDirectiveComponent } from './directive/header-directive.component';
 
 @NgModule({
 	imports: [ BrowserModule,
@@ -55,7 +52,8 @@ import { DetailComponent } from './pages/detail.component';
 		SignUpComponent,
 		SignInComponent,
 		OverviewComponent,
-		DetailComponent
+		DetailComponent,
+		HeaderDirectiveComponent
 	],
 
 	providers: [

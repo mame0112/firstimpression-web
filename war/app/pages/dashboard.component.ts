@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit{
 
 	ngOnInit(): void {
 
-		// this.questionData = this.questionService.getQuestions();
 		this.questionService.getQuestions().then(questions => this.questionData = questions);
 	}
 

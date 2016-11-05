@@ -19,10 +19,8 @@ var signup_component_1 = require('./pages/signup.component');
 var signin_component_1 = require('./pages/signin.component');
 var overview_component_1 = require('./pages/overview.component');
 var detail_component_1 = require('./pages/detail.component');
-// import { DetailComponent } from './app.detail.component';
-// import { MainPane } from './directive/main-pane';
-// // import { SubPane } from './directive/sub-pane';
-// import { QuestionDataService } from './service/questiondata-service';
+//Directive
+var header_directive_component_1 = require('./directive/header-directive.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -63,7 +61,8 @@ var AppModule = (function () {
                 signup_component_1.SignUpComponent,
                 signin_component_1.SignInComponent,
                 overview_component_1.OverviewComponent,
-                detail_component_1.DetailComponent
+                detail_component_1.DetailComponent,
+                header_directive_component_1.HeaderDirectiveComponent
             ],
             providers: [
                 question_service_1.QuestionDataService

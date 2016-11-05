@@ -23,4 +23,12 @@ export class DashboardComponent implements OnInit{
 		this.questionService.getQuestions().then(questions => this.questionData = questions);
 	}
 
+	onChoiceASelected(question: QuestionData): void {
+		console.log("onChoiceASelected");
+	}
+
+	onChoiceBSelected(question: QuestionData): void {
+		console.log("onChoiceBSelected");
+	}
+
 }

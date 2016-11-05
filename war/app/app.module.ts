@@ -12,6 +12,9 @@ import { SignInComponent } from './pages/signin.component';
 import { OverviewComponent } from './pages/overview.component';
 import { DetailComponent } from './pages/detail.component';
 
+// Views
+import { QuestionCardviewComponent } from './view/question-cardview.component';
+
 //Directive
 import { HeaderDirectiveComponent } from './directive/header-directive.component';
 
@@ -53,7 +56,8 @@ import { HeaderDirectiveComponent } from './directive/header-directive.component
 		SignInComponent,
 		OverviewComponent,
 		DetailComponent,
-		HeaderDirectiveComponent
+		HeaderDirectiveComponent,
+		QuestionCardviewComponent
 	],
 
 	providers: [

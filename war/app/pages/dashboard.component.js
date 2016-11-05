@@ -18,6 +18,12 @@ var DashboardComponent = (function () {
         var _this = this;
         this.questionService.getQuestions().then(function (questions) { return _this.questionData = questions; });
     };
+    DashboardComponent.prototype.onChoiceASelected = function (question) {
+        console.log("onChoiceASelected");
+    };
+    DashboardComponent.prototype.onChoiceBSelected = function (question) {
+        console.log("onChoiceBSelected");
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

@@ -6,7 +6,6 @@ import { ButtonsModule } from 'ng2-bootstrap/ng2-bootstrap';
 	moduleId: module.id,
 	selector: 'firstimpression-header',
 	templateUrl: 'header-directive.html'
-	// templateUrl: '../view/debug-view.html'
 })
 
 export class HeaderDirectiveComponent{

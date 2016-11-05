@@ -1,0 +1,26 @@
+#dashboard{
+
+}
+
+#dashboard ul{
+	font-size: 0;
+}
+
+#dashboard li{
+	display: inline-block;
+	font-size: 12px;
+	width: 25%;
+}
+
+#dashboard .cardview{
+	width: 200px;
+	height: 80px;
+	border: 1px solid #888888;
+	margin: 5px;
+	border-radius: 1em;	
+}
+
+#dashboard .cardview{
+
+}
+

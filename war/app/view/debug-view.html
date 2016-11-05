@@ -1,7 +1,12 @@
-<p>debug-view.html</p>
-
+<div id="dashboard">
 <ul>
-	<li *ngFor="let question of questionData">{{question.description}}</li>
+	<li *ngFor="let question of questionData">
+		<p class="cardview">
+		{{question.description}}
+			<button type="button" class="btn btn-primary" (click)="onChoiceASelected(question)">{{question.choiceA}}</button>
+			<button type="button" class="btn btn-danger" (click)="onChoiceBSelected(question)">{{question.choiceB}}</button>
+		</p>
+	</li>
 </ul>
 
 <p><a routerLink="/dashboard">Dashboard</a></p>
@@ -9,3 +14,4 @@
 <p><a routerLink="/signin">Sign in</a></p>
 <p><a routerLink="/overview">Overview</a></p>
 <p><a routerLink="/detail">Detail</a></p>
+</div>

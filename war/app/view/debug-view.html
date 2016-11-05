@@ -1,4 +1,9 @@
 <p>debug-view.html</p>
+
+<ul>
+	<li *ngFor="let question of questionData">{{question.description}}</li>
+</ul>
+
 <p><a routerLink="/dashboard">Dashboard</a></p>
 <p><a routerLink="/signup">Sign up</a></p>
 <p><a routerLink="/signin">Sign in</a></p>

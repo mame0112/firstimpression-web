@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
+var question_service_1 = require('./service/question.service');
 // Components
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./pages/dashboard.component');
@@ -63,6 +64,9 @@ var AppModule = (function () {
                 signin_component_1.SignInComponent,
                 overview_component_1.OverviewComponent,
                 detail_component_1.DetailComponent
+            ],
+            providers: [
+                question_service_1.QuestionDataService
             ],
             //Define application entry point component.
             bootstrap: [app_component_1.AppComponent]

@@ -2,6 +2,8 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
+import { QuestionDataService } from './service/question.service';
+
 // Components
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard.component';
@@ -54,6 +56,10 @@ import { DetailComponent } from './pages/detail.component';
 		SignInComponent,
 		OverviewComponent,
 		DetailComponent
+	],
+
+	providers: [
+		QuestionDataService
 	],
 
   	//Define application entry point component.

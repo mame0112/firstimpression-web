@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var question_service_1 = require('../service/question.service');
-var DashboardComponent = (function () {
-    function DashboardComponent(questionService) {
-        this.questionService = questionService;
+var mock_question_data_1 = require('../data/mock/mock.question.data');
+var QuestionDataService = (function () {
+    function QuestionDataService() {
     }
-    DashboardComponent.prototype.ngOnInit = function () {
-        this.questionData = this.questionService.getQuestions();
+    QuestionDataService.prototype.getQuestions = function () {
+        return mock_question_data_1.QUESTION_DATA;
     };
-    DashboardComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-dashboard',
-            templateUrl: '../view/debug-view.html'
-        }), 
-        __metadata('design:paramtypes', [question_service_1.QuestionDataService])
-    ], DashboardComponent);
-    return DashboardComponent;
+    QuestionDataService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], QuestionDataService);
+    return QuestionDataService;
 }());
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+exports.QuestionDataService = QuestionDataService;
+//# sourceMappingURL=question.service.js.map

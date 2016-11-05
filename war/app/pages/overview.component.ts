@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
 	template: 'Overview'
 })
 
-export class OverviewComponent {}
+export class OverviewComponent {
+
+}

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { QuestionDataService } from '../service/question.service';
+
+import { QuestionData } from '../data/question.data';
 
 @Component ({
 	moduleId: module.id,
@@ -6,4 +9,17 @@ import { Component } from '@angular/core';
 	templateUrl: '../view/debug-view.html'
 })
 
-export class DashboardComponent{}
+export class DashboardComponent implements OnInit{
+
+	questionData: QuestionData[];
+
+	constructor(
+		private questionService: QuestionDataService
+	){}
+
+
+	ngOnInit(): void {
+		this.questionData = this.questionService.getQuestions();
+	}
+
+}

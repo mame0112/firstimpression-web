@@ -15,7 +15,9 @@ var DashboardComponent = (function () {
         this.questionService = questionService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        this.questionData = this.questionService.getQuestions();
+        var _this = this;
+        // this.questionData = this.questionService.getQuestions();
+        this.questionService.getQuestions().then(function (questions) { return _this.questionData = questions; });
     };
     DashboardComponent = __decorate([
         core_1.Component({

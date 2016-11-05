@@ -13,8 +13,11 @@ var mock_question_data_1 = require('../data/mock/mock.question.data');
 var QuestionDataService = (function () {
     function QuestionDataService() {
     }
+    // getQuestions(): QuestionData[]{
+    // 	return QUESTION_DATA;
+    // }
     QuestionDataService.prototype.getQuestions = function () {
-        return mock_question_data_1.QUESTION_DATA;
+        return Promise.resolve(mock_question_data_1.QUESTION_DATA);
     };
     QuestionDataService = __decorate([
         core_1.Injectable(), 

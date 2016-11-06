@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
 import { QuestionDataService } from './service/question.service';
+import { LocalStorageService} from './service/storage.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -18,6 +19,12 @@ import { QuestionCardviewComponent } from './view/question-cardview.component';
 //Directive
 import { HeaderDirectiveComponent } from './directive/header-directive.component';
 import { FooterDirectiveComponent } from './directive/footer-directive.component';
+
+// Create config options (see ILocalStorageServiceConfigOptions) for deets:
+let localStorageServiceConfig = {
+    prefix: 'first-impression',
+    storageType: 'sessionStorage'
+};
 
 @NgModule({
 	imports: [ BrowserModule,
@@ -63,7 +70,8 @@ import { FooterDirectiveComponent } from './directive/footer-directive.component
 	],
 
 	providers: [
-		QuestionDataService
+		QuestionDataService,
+        LocalStorageService
 	],
 
   	//Define application entry point component.

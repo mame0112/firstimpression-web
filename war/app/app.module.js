@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var question_service_1 = require('./service/question.service');
+var storage_service_1 = require('./service/storage.service');
 // Components
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./pages/dashboard.component');
@@ -24,6 +25,11 @@ var question_cardview_component_1 = require('./view/question-cardview.component'
 //Directive
 var header_directive_component_1 = require('./directive/header-directive.component');
 var footer_directive_component_1 = require('./directive/footer-directive.component');
+// Create config options (see ILocalStorageServiceConfigOptions) for deets:
+var localStorageServiceConfig = {
+    prefix: 'first-impression',
+    storageType: 'sessionStorage'
+};
 var AppModule = (function () {
     function AppModule() {
     }
@@ -70,7 +76,8 @@ var AppModule = (function () {
                 question_cardview_component_1.QuestionCardviewComponent
             ],
             providers: [
-                question_service_1.QuestionDataService
+                question_service_1.QuestionDataService,
+                storage_service_1.LocalStorageService
             ],
             //Define application entry point component.
             bootstrap: [app_component_1.AppComponent]

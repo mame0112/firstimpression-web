@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var question_service_1 = require('../service/question.service');
+var storage_service_1 = require('../service/storage.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(questionService) {
+    function DashboardComponent(questionService, storageService) {
         this.questionService = questionService;
+        this.storageService = storageService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -30,7 +32,7 @@ var DashboardComponent = (function () {
             selector: 'my-dashboard',
             templateUrl: '../view/debug-view.html'
         }), 
-        __metadata('design:paramtypes', [question_service_1.QuestionDataService])
+        __metadata('design:paramtypes', [question_service_1.QuestionDataService, storage_service_1.LocalStorageService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

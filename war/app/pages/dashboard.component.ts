@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionDataService } from '../service/question.service';
 
+import { LocalStorageService, STORAGE_KEY } from '../service/storage.service';
+
 import { QuestionData } from '../data/question.data';
 
 @Component ({
@@ -14,7 +16,8 @@ export class DashboardComponent implements OnInit{
 	questionData: QuestionData[];
 
 	constructor(
-		private questionService: QuestionDataService
+		private questionService: QuestionDataService,
+		private storageService: LocalStorageService
 	){}
 
 

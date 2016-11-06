@@ -23,6 +23,7 @@ var detail_component_1 = require('./pages/detail.component');
 var question_cardview_component_1 = require('./view/question-cardview.component');
 //Directive
 var header_directive_component_1 = require('./directive/header-directive.component');
+var footer_directive_component_1 = require('./directive/footer-directive.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -65,6 +66,7 @@ var AppModule = (function () {
                 overview_component_1.OverviewComponent,
                 detail_component_1.DetailComponent,
                 header_directive_component_1.HeaderDirectiveComponent,
+                footer_directive_component_1.FooterDirectiveComponent,
                 question_cardview_component_1.QuestionCardviewComponent
             ],
             providers: [

@@ -17,6 +17,7 @@ import { QuestionCardviewComponent } from './view/question-cardview.component';
 
 //Directive
 import { HeaderDirectiveComponent } from './directive/header-directive.component';
+import { FooterDirectiveComponent } from './directive/footer-directive.component';
 
 @NgModule({
 	imports: [ BrowserModule,
@@ -57,6 +58,7 @@ import { HeaderDirectiveComponent } from './directive/header-directive.component
 		OverviewComponent,
 		DetailComponent,
 		HeaderDirectiveComponent,
+		FooterDirectiveComponent,
 		QuestionCardviewComponent
 	],
 

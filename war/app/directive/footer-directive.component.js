@@ -9,17 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var FooterDirectiveComponent = (function () {
+    function FooterDirectiveComponent() {
     }
-    AppComponent = __decorate([
+    FooterDirectiveComponent = __decorate([
         core_1.Component({
-            selector: "my-app",
-            template: "\n\t\t<firstimpression-header></firstimpression-header>\n\t\t<router-outlet>\n\t\t<firstimpression-footer></firstimpression-footer>\n\t"
+            moduleId: module.id,
+            selector: 'firstimpression-footer',
+            templateUrl: 'footer-directive.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], FooterDirectiveComponent);
+    return FooterDirectiveComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.FooterDirectiveComponent = FooterDirectiveComponent;
+//# sourceMappingURL=footer-directive.component.js.map

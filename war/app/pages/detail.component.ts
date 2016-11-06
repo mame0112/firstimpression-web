@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-	template: 'Detail'
+	moduleId: module.id,
+	selector: 'detail-view',
+	templateUrl: '../view/detail-answer-view.html'
 })
 
 export class DetailComponent {}

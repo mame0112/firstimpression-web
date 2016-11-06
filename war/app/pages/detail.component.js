@@ -14,7 +14,9 @@ var DetailComponent = (function () {
     }
     DetailComponent = __decorate([
         core_1.Component({
-            template: 'Detail'
+            moduleId: module.id,
+            selector: 'detail-view',
+            templateUrl: '../view/detail-answer-view.html'
         }), 
         __metadata('design:paramtypes', [])
     ], DetailComponent);

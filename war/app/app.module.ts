@@ -12,6 +12,9 @@ import { SignUpComponent } from './pages/signup.component';
 import { SignInComponent } from './pages/signin.component';
 import { OverviewComponent } from './pages/overview.component';
 import { DetailComponent } from './pages/detail.component';
+import { PrivacyComponent } from './pages/privacy.component';
+import { TermsComponent } from './pages/terms.component';
+import { ContactComponent } from './pages/contact.component';
 
 // Views
 import { QuestionCardviewComponent } from './view/question-cardview.component';
@@ -53,6 +56,18 @@ let localStorageServiceConfig = {
 			{
 				path: 'detail',
 				component: DetailComponent
+			},
+			{
+				path: 'privacy',
+				component: PrivacyComponent
+			},
+			{
+				path: 'terms',
+				component: TermsComponent
+			},
+			{
+				path: 'contact',
+				component: ContactComponent
 			}
 		])
 	 ],
@@ -66,7 +81,10 @@ let localStorageServiceConfig = {
 		DetailComponent,
 		HeaderDirectiveComponent,
 		FooterDirectiveComponent,
-		QuestionCardviewComponent
+		QuestionCardviewComponent,
+		PrivacyComponent,
+		TermsComponent,
+		ContactComponent
 	],
 
 	providers: [

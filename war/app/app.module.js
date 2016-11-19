@@ -20,6 +20,9 @@ var signup_component_1 = require('./pages/signup.component');
 var signin_component_1 = require('./pages/signin.component');
 var overview_component_1 = require('./pages/overview.component');
 var detail_component_1 = require('./pages/detail.component');
+var privacy_component_1 = require('./pages/privacy.component');
+var terms_component_1 = require('./pages/terms.component');
+var contact_component_1 = require('./pages/contact.component');
 // Views
 var question_cardview_component_1 = require('./view/question-cardview.component');
 //Directive
@@ -61,6 +64,18 @@ var AppModule = (function () {
                     {
                         path: 'detail',
                         component: detail_component_1.DetailComponent
+                    },
+                    {
+                        path: 'privacy',
+                        component: privacy_component_1.PrivacyComponent
+                    },
+                    {
+                        path: 'terms',
+                        component: terms_component_1.TermsComponent
+                    },
+                    {
+                        path: 'contact',
+                        component: contact_component_1.ContactComponent
                     }
                 ])
             ],
@@ -73,7 +88,10 @@ var AppModule = (function () {
                 detail_component_1.DetailComponent,
                 header_directive_component_1.HeaderDirectiveComponent,
                 footer_directive_component_1.FooterDirectiveComponent,
-                question_cardview_component_1.QuestionCardviewComponent
+                question_cardview_component_1.QuestionCardviewComponent,
+                privacy_component_1.PrivacyComponent,
+                terms_component_1.TermsComponent,
+                contact_component_1.ContactComponent
             ],
             providers: [
                 question_service_1.QuestionDataService,

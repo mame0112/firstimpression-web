@@ -10,11 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var question_service_1 = require('../service/question.service');
-var storage_service_1 = require('../service/storage.service');
+var constants_1 = require('../constant/constants');
+var storage_service_manager_1 = require('../service/storage.service.manager');
+var answered_question_data_1 = require('../data/answered.question.data');
 var DashboardComponent = (function () {
-    function DashboardComponent(questionService, storageService) {
+    function DashboardComponent(questionService, storageManager) {
         this.questionService = questionService;
-        this.storageService = storageService;
+        this.storageManager = storageManager;
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -22,9 +24,15 @@ var DashboardComponent = (function () {
     };
     DashboardComponent.prototype.onChoiceASelected = function (question) {
         console.log("onChoiceASelected");
+        this.storeAnsweredQuestion(constants_1.Constants.CHOICE_A, question);
     };
     DashboardComponent.prototype.onChoiceBSelected = function (question) {
         console.log("onChoiceBSelected");
+        this.storeAnsweredQuestion(constants_1.Constants.CHOICE_B, question);
+    };
+    DashboardComponent.prototype.storeAnsweredQuestion = function (selectedChoice, questionData) {
+        var answered = new answered_question_data_1.AnsweredQuestionData(selectedChoice, questionData);
+        this.storageManager.setAnsweredQuestion(answered);
     };
     DashboardComponent = __decorate([
         core_1.Component({
@@ -32,7 +40,7 @@ var DashboardComponent = (function () {
             selector: 'my-dashboard',
             templateUrl: '../view/debug-view.html'
         }), 
-        __metadata('design:paramtypes', [question_service_1.QuestionDataService, storage_service_1.LocalStorageService])
+        __metadata('design:paramtypes', [question_service_1.QuestionDataService, storage_service_manager_1.LocalStorageManager])
     ], DashboardComponent);
     return DashboardComponent;
 }());

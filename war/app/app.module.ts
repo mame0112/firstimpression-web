@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { QuestionDataService } from './service/question.service';
 import { LocalStorageService} from './service/storage.service';
+import { LocalStorageManager} from './service/storage.service.manager';
 
 // Components
 import { AppComponent } from './app.component';
@@ -89,51 +90,12 @@ let localStorageServiceConfig = {
 
 	providers: [
 		QuestionDataService,
-        LocalStorageService
+        LocalStorageService,
+        LocalStorageManager
 	],
 
   	//Define application entry point component.
 	bootstrap: [ AppComponent ]
 })
-
-// @NgModule({
-
-
-// 	imports:      [ BrowserModule,
-// 		RouterModule.forRoot([
-// 			{
-// 				path: '',
-// 				redirectTo: '/dashboard',
-// 				pathMatch: 'full'
-// 			},
-// 			{
-// 				path: 'dashboard',
-// 				component: MainPane
-// 			},
-// 			{
-// 				path: 'detail/:questionId',
-// 				component: DetailComponent
-// 			}
-
-// 		])
-// 	 ],
-
-// 	//Registor irective and pipe. Original directives will be added here.
-// 	declarations: [
-// 		AppComponent,
-// 		// DashboardComponent,
-// 		MainPane,
-// 		DetailComponent
-// 		// SubPane
-// 	],
-
-// 	providers: [
-// 		QuestionDataService
-// 	],
-
-// 	//Define application entry point component.
-// 	bootstrap: [ AppComponent ]
-
-// })
 
 export class AppModule { }

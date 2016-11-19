@@ -15,7 +15,9 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
-            template: "\n\t\t<firstimpression-header></firstimpression-header>\n\t\t<router-outlet>\n\t\t<firstimpression-footer></firstimpression-footer>\n\t"
+            // <firstimpression-header></firstimpression-header>
+            // <firstimpression-footer></firstimpression-footer>
+            template: "\n\t\t<router-outlet>\n\t"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

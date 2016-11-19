@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
+// Services
 var question_service_1 = require('./service/question.service');
 var storage_service_1 = require('./service/storage.service');
 var storage_service_manager_1 = require('./service/storage.service.manager');
+var debug_1 = require('./util/debug');
 // Components
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./pages/dashboard.component');
@@ -97,7 +99,8 @@ var AppModule = (function () {
             providers: [
                 question_service_1.QuestionDataService,
                 storage_service_1.LocalStorageService,
-                storage_service_manager_1.LocalStorageManager
+                storage_service_manager_1.LocalStorageManager,
+                debug_1.LogUtil
             ],
             //Define application entry point component.
             bootstrap: [app_component_1.AppComponent]

@@ -2,6 +2,7 @@
 var Constants = (function () {
     function Constants() {
     }
+    Constants.IS_DEBUG = true;
     Constants.NO_USER = -1;
     Constants.NO_QUESTION = -1;
     Constants.CHOICE_A = 0;

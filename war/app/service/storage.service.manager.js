@@ -11,10 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var storage_service_1 = require('./storage.service');
 var constants_1 = require('../constant/constants');
+var debug_1 = require('../util/debug');
 var LocalStorageManager = (function () {
-    function LocalStorageManager(localStorage) {
+    function LocalStorageManager(localStorage, logUtil) {
         this.localStorage = localStorage;
-        console.log("Constructor");
+        this.TAG = "LocalStorageManager";
+        this.logUtil = logUtil;
+        this.logUtil.d(this.TAG, "constructor");
         var notAnswered = this.localStorage.get(storage_service_1.STORAGE_KEY.ANSWERED_QUESTIONS);
         if (!notAnswered) {
             notAnswered = new Array();
@@ -22,7 +25,7 @@ var LocalStorageManager = (function () {
         }
     }
     LocalStorageManager.prototype.setAnsweredQuestion = function (answered) {
-        console.log("setAnsweredQuestion");
+        this.logUtil.d(this.TAG, "setAnsweredQuestion");
         var notAnswered;
         if (!answered) {
             throw "AnsweredQuestionData cannot be null nor undefined";
@@ -36,11 +39,11 @@ var LocalStorageManager = (function () {
         notAnswered.push(answered);
     };
     LocalStorageManager.prototype.getAnsweredQuestions = function () {
-        console.log("getAnsweredQuestion");
+        this.logUtil.d(this.TAG, "getAnsweredQuestion");
         return this.localStorage.get(storage_service_1.STORAGE_KEY.ANSWERED_QUESTIONS);
     };
     LocalStorageManager.prototype.retrieveNotAnsweredQuestions = function (newQuestions) {
-        console.log("getNotAnsweredQuestions");
+        this.logUtil.d(this.TAG, "getNotAnsweredQuestions");
         if (!newQuestions) {
             throw "question cannot be null nor undefined";
         }
@@ -52,7 +55,7 @@ var LocalStorageManager = (function () {
     };
     LocalStorageManager = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [storage_service_1.LocalStorageService])
+        __metadata('design:paramtypes', [storage_service_1.LocalStorageService, debug_1.LogUtil])
     ], LocalStorageManager);
     return LocalStorageManager;
 }());

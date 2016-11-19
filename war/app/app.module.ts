@@ -2,9 +2,11 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
+// Services
 import { QuestionDataService } from './service/question.service';
 import { LocalStorageService} from './service/storage.service';
 import { LocalStorageManager} from './service/storage.service.manager';
+import { LogUtil} from './util/debug';
 
 // Components
 import { AppComponent } from './app.component';
@@ -91,7 +93,8 @@ let localStorageServiceConfig = {
 	providers: [
 		QuestionDataService,
         LocalStorageService,
-        LocalStorageManager
+        LocalStorageManager,
+        LogUtil
 	],
 
   	//Define application entry point component.

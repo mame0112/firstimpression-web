@@ -5,14 +5,19 @@ import { QuestionData } from '../data/question.data';
 import { AnsweredQuestionData } from '../data/answered.question.data';
 
 import { Constants } from '../constant/constants';
+import { LogUtil } from '../util/debug';
 
 @Injectable()
 export class LocalStorageManager{
 
+	TAG = "LocalStorageManager";
+	logUtil: LogUtil;
+
 	answeredQuestions: QuestionData[];
 
-	constructor(private localStorage : LocalStorageService){
-		console.log("Constructor");
+	constructor(private localStorage : LocalStorageService, logUtil: LogUtil){
+		this.logUtil = logUtil;
+		this.logUtil.d(this.TAG, "constructor");
 		let notAnswered = this.localStorage.get(STORAGE_KEY.ANSWERED_QUESTIONS);
 
 		if(!notAnswered){
@@ -22,7 +27,7 @@ export class LocalStorageManager{
 	}
 
 	setAnsweredQuestion(answered: AnsweredQuestionData): void{
-		console.log("setAnsweredQuestion");
+		this.logUtil.d(this.TAG, "setAnsweredQuestion");
 
 		var notAnswered: Array<AnsweredQuestionData>;
 
@@ -44,14 +49,14 @@ export class LocalStorageManager{
 	}
 
 	getAnsweredQuestions(): Array<QuestionData>{
-		console.log("getAnsweredQuestion");
+		this.logUtil.d(this.TAG, "getAnsweredQuestion");
 
 		return this.localStorage.get(STORAGE_KEY.ANSWERED_QUESTIONS);
 
 	}
 
 	retrieveNotAnsweredQuestions(newQuestions: QuestionData[]): Array<QuestionData>{
-		console.log("getNotAnsweredQuestions");
+		this.logUtil.d(this.TAG, "getNotAnsweredQuestions");
 
 		if(!newQuestions){
 			throw "question cannot be null nor undefined";

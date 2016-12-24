@@ -31,6 +31,7 @@ var question_cardview_component_1 = require('./view/question-cardview.component'
 //Directive
 var header_directive_component_1 = require('./directive/header-directive.component');
 var footer_directive_component_1 = require('./directive/footer-directive.component');
+var common_1 = require('@angular/common');
 // Create config options (see ILocalStorageServiceConfigOptions) for deets:
 var localStorageServiceConfig = {
     prefix: 'first-impression',
@@ -100,7 +101,8 @@ var AppModule = (function () {
                 question_service_1.QuestionDataService,
                 storage_service_1.LocalStorageService,
                 storage_service_manager_1.LocalStorageManager,
-                debug_1.LogUtil
+                debug_1.LogUtil,
+                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
             ],
             //Define application entry point component.
             bootstrap: [

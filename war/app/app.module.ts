@@ -26,6 +26,8 @@ import { QuestionCardviewComponent } from './view/question-cardview.component';
 import { HeaderDirectiveComponent } from './directive/header-directive.component';
 import { FooterDirectiveComponent } from './directive/footer-directive.component';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 // Create config options (see ILocalStorageServiceConfigOptions) for deets:
 let localStorageServiceConfig = {
     prefix: 'first-impression',
@@ -94,7 +96,8 @@ let localStorageServiceConfig = {
 		QuestionDataService,
         LocalStorageService,
         LocalStorageManager,
-        LogUtil
+        LogUtil,
+        {provide: LocationStrategy, useClass: HashLocationStrategy}
 	],
 
   	//Define application entry point component.

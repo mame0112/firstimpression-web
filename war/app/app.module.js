@@ -103,7 +103,12 @@ var AppModule = (function () {
                 debug_1.LogUtil
             ],
             //Define application entry point component.
-            bootstrap: [app_component_1.AppComponent]
+            bootstrap: [
+                app_component_1.AppComponent,
+                // So that we can use these component from index.html. we need to add them into bootstrap
+                header_directive_component_1.HeaderDirectiveComponent,
+                footer_directive_component_1.FooterDirectiveComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

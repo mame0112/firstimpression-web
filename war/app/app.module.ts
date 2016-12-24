@@ -98,7 +98,13 @@ let localStorageServiceConfig = {
 	],
 
   	//Define application entry point component.
-	bootstrap: [ AppComponent ]
+	bootstrap: [
+	 AppComponent,
+
+	 // So that we can use these component from index.html. we need to add them into bootstrap
+	 HeaderDirectiveComponent,
+	 FooterDirectiveComponent
+	 ]
 })
 
 export class AppModule { }

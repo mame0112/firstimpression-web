@@ -26,7 +26,7 @@ var LocalStorageManager = (function () {
     }
     LocalStorageManager.prototype.setAnsweredQuestion = function (answered) {
         this.logUtil.d(this.TAG, "setAnsweredQuestion");
-        var notAnswered;
+        var notAnsweredArray;
         if (!answered) {
             throw "AnsweredQuestionData cannot be null nor undefined";
         }
@@ -34,9 +34,9 @@ var LocalStorageManager = (function () {
         if (questionId === constants_1.Constants.NO_QUESTION) {
             throw "Question id cannot be NO_QUESTION";
         }
-        notAnswered = this.localStorage.get(storage_service_1.STORAGE_KEY.ANSWERED_QUESTIONS);
+        notAnsweredArray = this.localStorage.get(storage_service_1.STORAGE_KEY.ANSWERED_QUESTIONS);
         //TODO Need to check if same question id has already been answered.
-        notAnswered.push(answered);
+        notAnsweredArray.push(answered);
     };
     LocalStorageManager.prototype.getAnsweredQuestions = function () {
         this.logUtil.d(this.TAG, "getAnsweredQuestion");
@@ -47,11 +47,48 @@ var LocalStorageManager = (function () {
         if (!newQuestions) {
             throw "question cannot be null nor undefined";
         }
-        var notAnswered = this.localStorage.get(storage_service_1.STORAGE_KEY.ANSWERED_QUESTIONS);
+        var notAnsweredArray = new Array();
+        var answeredArray = this.localStorage.get(storage_service_1.STORAGE_KEY.ANSWERED_QUESTIONS);
         for (var i = 0; i < newQuestions.length; i++) {
             var id = newQuestions[i].questionId;
+            var isAnswered = false;
+            //TODO Retrieve not answered question
+            for (var j = 0; j < answeredArray.length; j++) {
+                var answeredId = answeredArray[j].questionId;
+                if (id === answeredId) {
+                    isAnswered = true;
+                    break;
+                }
+            }
+            if (!isAnswered) {
+                notAnsweredArray.push(newQuestions[i]);
+            }
         }
-        return null;
+        return notAnsweredArray;
+    };
+    LocalStorageManager.prototype.retrieveNotAnsweredQuestionsWithAsync = function (newQuestions) {
+        this.logUtil.d(this.TAG, "retrieveNotAnsweredQuestionsWithAsync: " + newQuestions.length);
+        if (!newQuestions) {
+            throw "question cannot be null nor undefined";
+        }
+        var notAnsweredArray = new Array();
+        var answeredArray = this.localStorage.get(storage_service_1.STORAGE_KEY.ANSWERED_QUESTIONS);
+        for (var i = 0; i < newQuestions.length; i++) {
+            var id = newQuestions[i].questionId;
+            var isAnswered = false;
+            //TODO Retrieve not answered question
+            for (var j = 0; j < answeredArray.length; j++) {
+                var answeredId = answeredArray[j].questionId;
+                if (id === answeredId) {
+                    isAnswered = true;
+                    break;
+                }
+            }
+            if (!isAnswered) {
+                notAnsweredArray.push(newQuestions[i]);
+            }
+        }
+        return Promise.resolve(notAnsweredArray);
     };
     LocalStorageManager = __decorate([
         core_1.Injectable(), 

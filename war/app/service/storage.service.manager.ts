@@ -29,7 +29,7 @@ export class LocalStorageManager{
 	setAnsweredQuestion(answered: AnsweredQuestionData): void{
 		this.logUtil.d(this.TAG, "setAnsweredQuestion");
 
-		var notAnswered: Array<AnsweredQuestionData>;
+		var notAnsweredArray: Array<AnsweredQuestionData>;
 
 		if(!answered){
 			throw "AnsweredQuestionData cannot be null nor undefined";
@@ -41,11 +41,11 @@ export class LocalStorageManager{
 			throw "Question id cannot be NO_QUESTION";
 		}
 
-		notAnswered = this.localStorage.get(STORAGE_KEY.ANSWERED_QUESTIONS);
+		notAnsweredArray = this.localStorage.get(STORAGE_KEY.ANSWERED_QUESTIONS);
 
 		//TODO Need to check if same question id has already been answered.
 
-		notAnswered.push(answered);
+		notAnsweredArray.push(answered);
 	}
 
 	getAnsweredQuestions(): Array<QuestionData>{
@@ -62,13 +62,61 @@ export class LocalStorageManager{
 			throw "question cannot be null nor undefined";
 		}
 
-		let notAnswered = this.localStorage.get(STORAGE_KEY.ANSWERED_QUESTIONS);
+		let notAnsweredArray =  new Array();
+
+		let answeredArray = this.localStorage.get(STORAGE_KEY.ANSWERED_QUESTIONS);
 
 		for (var i = 0; i < newQuestions.length; i++) { 
 			let id = newQuestions[i].questionId;
+
+			let isAnswered = false;
 			//TODO Retrieve not answered question
+			for(var j = 0; j < answeredArray.length; j++){
+				let answeredId = answeredArray[j].questionId;
+				if(id === answeredId){
+					isAnswered = true;
+					break;
+				}
+			}
+
+			if(!isAnswered){
+				notAnsweredArray.push(newQuestions[i]);
+			}
 		}
 
-		return null;
+		return notAnsweredArray;
+	}
+
+	retrieveNotAnsweredQuestionsWithAsync(newQuestions: QuestionData[]): Promise<Array<QuestionData>>{
+
+		this.logUtil.d(this.TAG, "retrieveNotAnsweredQuestionsWithAsync: " + newQuestions.length);
+
+		if(!newQuestions){
+			throw "question cannot be null nor undefined";
+		}
+
+		let notAnsweredArray =  new Array();
+
+		let answeredArray = this.localStorage.get(STORAGE_KEY.ANSWERED_QUESTIONS);
+
+		for (var i = 0; i < newQuestions.length; i++) { 
+			let id = newQuestions[i].questionId;
+
+			let isAnswered = false;
+			//TODO Retrieve not answered question
+			for(var j = 0; j < answeredArray.length; j++){
+				let answeredId = answeredArray[j].questionId;
+				if(id === answeredId){
+					isAnswered = true;
+					break;
+				}
+			}
+
+			if(!isAnswered){
+				notAnsweredArray.push(newQuestions[i]);
+			}
+		}
+
+		return Promise.resolve(notAnsweredArray);
 	}
 }

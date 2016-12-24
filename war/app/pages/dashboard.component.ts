@@ -25,8 +25,8 @@ export class DashboardComponent implements OnInit{
 
 
 	ngOnInit(): void {
-
 		this.questionService.getQuestions().then(questions => this.questionData = questions);
+
 	}
 
 	onChoiceASelected(question: QuestionData): void {
